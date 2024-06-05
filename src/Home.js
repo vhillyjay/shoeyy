@@ -7,9 +7,13 @@ const Home = () => {
     { id: 2, brand: 'Nike', model: 'Air Force 1', size: 7, gender: 'Female' },
     { id: 3, brand: 'Nike', model: 'Jordan 1', size: 10, gender: 'Male' },
   ])
+  const handleDelete = (id) => {
+    const newShoes = shoes.filter(shoesData => shoesData.id !== id)
+    setShoes(newShoes)
+  }
   return ( 
     <div className="home">
-      <Shoes shoes={shoes} title="All"/>
+      <Shoes shoes={shoes} title="All" handleDelete={handleDelete} />
       {/* <Shoes shoes={shoes.filter((shoes) => shoes.gender === 'Male')} title="Men's"/> */}
     </div>
   );
